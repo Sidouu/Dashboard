@@ -1,0 +1,11 @@
+bo_customer:
+    resource: "@BOCustomerBundle/Resources/config/routing.yml"
+    prefix:   /
+
+bo_back_office:
+    resource: "@BOBackOfficeBundle/Resources/config/routing.yml"
+    prefix:   /admin/
+
+bo_security:
+    resource: "@BOSecurityBundle/Resources/config/routing.yml"
+    prefix:   /admin/

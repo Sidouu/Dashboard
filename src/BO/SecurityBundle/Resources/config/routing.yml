@@ -1,0 +1,18 @@
+BOSecurityBundle_homepage:
+    pattern:  /
+    defaults: { _controller: BOSecurityBundle:Security:login }
+
+BOSecurityBundle_login:
+    pattern:  /login
+    defaults: { _controller: BOSecurityBundle:Security:login }
+
+BOSecurityBundle_login_check:
+    pattern:   /login_check
+
+BOSecurityBundle_logout:
+    pattern:  /logout
+    defaults: { _controller: BOSecurityBundle:Default:logout }
+
+BOSecurityBundle_secured:
+    pattern:  /
+    defaults: { _controller: BOSecurityBundle:Default:index }

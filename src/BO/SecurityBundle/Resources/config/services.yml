@@ -1,0 +1,7 @@
+parameters:
+#    bo_security.example.class: BO\SecurityBundle\Example
+
+services:
+#    bo_security.example:
+#        class: %bo_security.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

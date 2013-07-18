@@ -1,0 +1,366 @@
+@charset "utf-8";
+
+/* ---------- COMMON STYLES ---------- */
+
+body {
+    background-color: #EEEEEE;
+    color: #58595B;
+    font-family: "PT Sans";
+    font-size: 10pt;
+    margin: 0 auto;
+    width: 1000px;
+}
+
+img {
+	border: 0;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	list-style: none;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 12pt;
+    margin: 0;
+}
+
+h2 {
+    font-size: 10pt;
+}
+
+h3 {    
+    font-size: 10pt;
+}
+
+hr {
+    background-color: #e5e3d4;
+    border: 0 none;
+    color: #e5e3d4;
+    height: 1px;
+}
+
+.center {
+	text-align: center;
+}
+
+.justify {
+	text-align: justify;
+}
+
+.pull-left {
+	float: left;
+}
+
+.pull-right {
+	float: right;
+}
+
+.clear-fix:after {
+    content: ".";
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+@font-face {
+   font-family: "PT Sans";
+   font-style: normal;
+   font-weight: 400;
+   src: local("PT Sans"), local("PTSans-Regular"), url("http://themes.googleusercontent.com/static/fonts/ptsans/v4/LKf8nhXsWg5ybwEGXk8UBQ.woff") format("woff");
+}
+
+.mr10 {
+    margin-right: 10px;
+}
+
+/* HEADER */
+
+header {
+    background-color: #3C454F;
+    height: 60px;
+    width: 1000px;
+}
+
+header #icon-sidemenu {
+    margin-left: 15px;
+    margin-top: 15px;
+    position: absolute;
+    cursor: pointer;
+}
+
+header .open {
+    color: #5fabdf;
+}
+
+.icon-white {
+    color: #F2F2EA;
+}
+
+header > nav {
+    float: right;
+}
+
+header > nav ul li {
+    float: left;
+}
+
+header > nav.main ul li:last-child {
+    float: right;
+}
+
+header > nav ul li a {
+    color: #FFFFFF;
+    display: block;
+    padding: 21px;
+    text-decoration: none;
+}
+
+header > nav.main ul li a:hover {
+    background-color: #495461;
+}
+
+header > nav.main ul li a.active {
+    background-color: #495461;
+}
+
+header > nav.sub {
+    background-color: #495461;
+    height: 60px;
+    position: absolute;
+    width: 1000px;
+    z-index: 20;
+    top: 60px;
+}
+
+header > nav.sub ul li a:hover {
+    color: #7ACBF2;
+}
+
+header > nav.sub ul li a.active {
+    color: #7ACBF2;
+}
+
+header > nav.sub:last-child {
+    height: auto;
+    margin-left: 800px;
+    position: absolute;
+    width: 200px;
+}
+
+li.sep {
+    border-top: 1px solid #94979A;
+    width: 150px;
+    margin-left: 25px;
+}
+
+/* DASHBOARD */
+
+#wrap {
+    width: 999px;
+    border: 1px solid #d4d5d0;
+    border-top: none;
+    background-color: #F2F2F0;
+    min-height: 300px;
+    padding-top: 100px;
+}
+
+#dash-sidemenu {
+    background-color: #F2F2EA;
+    border-right: 1px solid #D4D5D0;
+    min-height: 500px;
+    width: 198px;
+    box-shadow: 1px 1px 2px #d4d5d0;
+    position: absolute;
+    z-index: 10;
+}
+
+#dash-sidemenu li {
+    border-top: 0;
+    padding: 20px;
+}
+
+#dash-sidemenu li.m1 {
+    border-left: 5px solid #5fabdf;
+}
+
+#dash-sidemenu li.m2 {
+    border-left: 5px solid #de6262;
+}
+
+#dash-sidemenu li.m3 {
+    border-left: 5px solid #70c67f;
+}
+
+#dash-sidemenu li.m4 {
+    border-left: 5px solid #9e62de;
+}
+
+#dash-sidemenu li.m5 {
+    border-left: 5px solid #6270db;
+}
+
+#dash-sidemenu li.m6 {
+    border-left: 5px solid #dca761;
+}
+
+#dash-sidemenu li.m7 {
+    border-left: 5px solid #a66f72;
+}
+
+#dash-sidemenu li.m8 {
+    border-left: 5px solid #71a69e;
+}
+
+#dash-sidemenu li.m9 {
+    border-left: 5px solid #727274;
+}
+
+#dash-sidemenu hr {
+    margin: -1px;
+}
+
+#dash-content {
+    width: 999px;
+    border-top: 5px solid #5fabdf;
+    position: relative;
+    background-color: #f2f2f0;
+}
+
+.dash-content-title {
+    background-color: #F7F6F2;
+    border-bottom: 1px solid #CECCC0;
+    height: 80px;
+    line-height: 80px;
+    padding: 0 20px;
+}
+
+.dash-content-title h1 {
+    display: inline;
+    margin-left: 10px;
+}
+
+/* FORM */
+
+#loginForm {
+    margin-left: 300px;
+    width: 400px;
+}
+
+.controls:after {
+    content: ".";
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+.controls {
+    margin-bottom: 20px;
+}
+
+.controls label {
+    float: left;
+}
+
+.controls input {
+    float: right;
+    border: 1px solid #E5E5E5;
+    padding: 8px;
+    font-family: 'PT Sans';
+    font-size: 10pt;
+    color: #58595B;
+    width: 250px;
+}
+
+.controls textarea {
+    float: right;
+    border: 1px solid #E5E5E5;
+    padding: 10px;
+    font-family: 'PT Sans';
+    font-size: 10pt;
+    color: #58595B;
+    width: 250px;
+    height: 150px;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #a3a4a8;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #a3a4a8;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #a3a4a8;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #a3a4a8;
+}
+
+/* BUTTONS */
+
+.btn-flat {
+    padding: 5px 10px;
+    font-size: 10pt;
+    border: 0;
+    color: #FFFFFF;
+    -webkit-transition: all 0.30s ease-in-out 0s;
+    -moz-transition: all 0.30s ease-in-out 0s;
+    -ms-transition: all 0.30s ease-in-out 0s;
+    -o-transition: all 0.30s ease-in-out 0s;
+    transition: all 0.30s ease-in-out 0s;
+    cursor: pointer;
+}
+
+.btn-flat-blue {
+    background-color: #52A8EC;
+}
+
+.btn-flat-blue:hover {
+    background-color: #333333;
+}
+
+.btn-flat-green {
+    background-color: #7ebd26;
+}
+
+.btn-flat-green:hover {
+    background-color: #333333;
+}
+
+.btn-flat-grey {
+    background-color: #3C454F;
+}
+
+.btn-flat-grey:hover {
+    background-color: #7ebd26;
+}
+
+.btn-flat-grey-light {
+    background-color: #F6F6F6;
+    color: #7ebd26;
+}
+
+.btn-flat-grey-light:hover {
+    background-color: #7ebd26;
+    color: #FFFFFF;
+}
+
+.btn-flat-red {
+    background-color: #F6F6F6;
+    color: #FF0000;
+}
+
+.btn-flat-red:hover {
+    background-color: #FF0000;
+    color: #FFFFFF;
+}
