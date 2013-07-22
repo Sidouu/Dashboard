@@ -1,0 +1,49 @@
+BO\BackOfficeBundle\Entity\Customer:
+    type: entity
+    table: null
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        lastName:
+            type: string
+            length: 255
+        firstName:
+            type: string
+            length: 255
+        nextVisit:
+            type: date
+        tour:
+            type: string
+            length: 255
+        address:
+            type: string
+            length: 255
+        locality:
+            type: string
+            length: 255
+        postalCode:
+            type: integer
+        city:
+            type: string
+            length: 255
+        lastVisit:
+            type: date
+        homePhone:
+            type: integer
+        workPhone:
+            type: integer
+        mobilePhone:
+            type: integer
+        email:
+            type: string
+            length: 255
+        job:
+            type: string
+            length: 255
+        notes:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

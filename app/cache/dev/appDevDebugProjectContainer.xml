@@ -18,7 +18,6 @@
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
       <parameter key="BOBackOfficeBundle">BO\BackOfficeBundle\BOBackOfficeBundle</parameter>
       <parameter key="BOSecurityBundle">BO\SecurityBundle\BOSecurityBundle</parameter>
-      <parameter key="BOCustomerBundle">BO\CustomerBundle\BOCustomerBundle</parameter>
       <parameter key="AcmeDemoBundle">Acme\DemoBundle\AcmeDemoBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -1543,7 +1542,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>51e7c303c65ab</argument>
+            <argument>51e803a32d84a</argument>
           </service>
         </argument>
         <argument type="service">
@@ -1876,7 +1875,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>51e7c303c65ab</argument>
+            <argument>51e803a32d84a</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
           </service>
         </argument>
@@ -2349,7 +2348,9 @@
       <argument type="service">
         <service class="Doctrine\ORM\Configuration" public="false">
           <call method="setEntityNamespaces">
-            <argument type="collection"/>
+            <argument type="collection">
+              <argument key="BOBackOfficeBundle">BO\BackOfficeBundle\Entity</argument>
+            </argument>
           </call>
           <call method="setMetadataCacheImpl">
             <argument type="service">
@@ -2380,7 +2381,21 @@
           </call>
           <call method="setMetadataDriverImpl">
             <argument type="service">
-              <service class="Doctrine\ORM\Mapping\Driver\DriverChain" public="false"/>
+              <service class="Doctrine\ORM\Mapping\Driver\DriverChain" public="false">
+                <call method="addDriver">
+                  <argument type="service">
+                    <service class="Doctrine\ORM\Mapping\Driver\SimplifiedYamlDriver" public="false">
+                      <argument type="collection">
+                        <argument key="C:\wamp\www\Dashboard\src\BO\BackOfficeBundle\Resources\config\doctrine">BO\BackOfficeBundle\Entity</argument>
+                      </argument>
+                      <call method="setGlobalBasename">
+                        <argument>mapping</argument>
+                      </call>
+                    </service>
+                  </argument>
+                  <argument>BO\BackOfficeBundle\Entity</argument>
+                </call>
+              </service>
             </argument>
           </call>
           <call method="setProxyDir">
@@ -2776,10 +2791,6 @@
       <call method="addPath">
         <argument>C:\wamp\www\Dashboard\src\BO\SecurityBundle/Resources/views</argument>
         <argument>BOSecurity</argument>
-      </call>
-      <call method="addPath">
-        <argument>C:\wamp\www\Dashboard\src\BO\CustomerBundle/Resources/views</argument>
-        <argument>BOCustomer</argument>
       </call>
       <call method="addPath">
         <argument>C:\wamp\www\Dashboard\src\Acme\DemoBundle/Resources/views</argument>

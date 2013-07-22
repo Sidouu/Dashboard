@@ -13,6 +13,7 @@
         {% block javascripts %}
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
             <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+            <script src="{{ asset('bundles/bobackoffice/js/jquery.pajinate.min.js') }}"></script>
             <script src="{{ asset('bundles/bobackoffice/js/main.js') }}"></script>
         {% endblock %}
     </head>
@@ -52,9 +53,9 @@
         </header>
         <div id="wrap">
             <ul id="dash-sidemenu">
-                <li class="m1"><i class="icon-home icon-large mr10"></i>Home</li>
+                <a href="{{ path('bo_back_office_homepage') }}"><li class="m1"><i class="icon-home icon-large mr10"></i>Home</li></a>
                 <hr>
-                <li class="m2"><i class="icon-user icon-large mr10"></i>User</li>
+                <a href="{{ path('customer') }}"><li class="m2"><i class="icon-user icon-large mr10"></i>Customers</li></a>
                 <hr>
                 <li class="m3"><i class="icon-user icon-large mr10"></i>Schedule</li>
                 <hr>

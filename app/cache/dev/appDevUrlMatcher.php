@@ -133,11 +133,6 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // bo_customer_homepage
-        if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'bo_customer_homepage')), array (  '_controller' => 'BO\\CustomerBundle\\Controller\\DefaultController::indexAction',));
-        }
-
         if (0 === strpos($pathinfo, '/admin')) {
             // bo_back_office_homepage
             if (rtrim($pathinfo, '/') === '/admin') {
@@ -146,6 +141,71 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 }
 
                 return array (  '_controller' => 'BO\\BackOfficeBundle\\Controller\\DefaultController::indexAction',  '_route' => 'bo_back_office_homepage',);
+            }
+
+            if (0 === strpos($pathinfo, '/admin/customer')) {
+                // customer
+                if (rtrim($pathinfo, '/') === '/admin/customer') {
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'customer');
+                    }
+
+                    return array (  '_controller' => 'BO\\BackOfficeBundle\\Controller\\CustomerController::indexAction',  '_route' => 'customer',);
+                }
+
+                // customer_show
+                if (preg_match('#^/admin/customer/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'customer_show')), array (  '_controller' => 'BO\\BackOfficeBundle\\Controller\\CustomerController::showAction',));
+                }
+
+                // customer_new
+                if ($pathinfo === '/admin/customer/new') {
+                    return array (  '_controller' => 'BO\\BackOfficeBundle\\Controller\\CustomerController::newAction',  '_route' => 'customer_new',);
+                }
+
+                // customer_create
+                if ($pathinfo === '/admin/customer/create') {
+                    if ($this->context->getMethod() != 'POST') {
+                        $allow[] = 'POST';
+                        goto not_customer_create;
+                    }
+
+                    return array (  '_controller' => 'BO\\BackOfficeBundle\\Controller\\CustomerController::createAction',  '_route' => 'customer_create',);
+                }
+                not_customer_create:
+
+                // customer_edit
+                if (preg_match('#^/admin/customer/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'customer_edit')), array (  '_controller' => 'BO\\BackOfficeBundle\\Controller\\CustomerController::editAction',));
+                }
+
+                // customer_update
+                if (preg_match('#^/admin/customer/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                        $allow = array_merge($allow, array('POST', 'PUT'));
+                        goto not_customer_update;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'customer_update')), array (  '_controller' => 'BO\\BackOfficeBundle\\Controller\\CustomerController::updateAction',));
+                }
+                not_customer_update:
+
+                // customer_delete
+                if (preg_match('#^/admin/customer/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                        $allow = array_merge($allow, array('POST', 'DELETE'));
+                        goto not_customer_delete;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'customer_delete')), array (  '_controller' => 'BO\\BackOfficeBundle\\Controller\\CustomerController::deleteAction',));
+                }
+                not_customer_delete:
+
+                // customer_search
+                if ($pathinfo === '/admin/customer/search') {
+                    return array (  '_controller' => 'BO\\BackOfficeBundle\\Controller\\CustomerController::searchAction',  '_route' => 'customer_search',);
+                }
+
             }
 
             // BOSecurityBundle_homepage

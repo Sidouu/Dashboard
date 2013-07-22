@@ -36,7 +36,7 @@ class __TwigTemplate_138657bd92d2f1d3559134fec1866427 extends Twig_Template
         ";
         // line 13
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 18
+        // line 19
         echo "    </head>
     <body>
         <header>
@@ -68,7 +68,7 @@ class __TwigTemplate_138657bd92d2f1d3559134fec1866427 extends Twig_Template
                     <li class=\"sep\"></li>
                     <li>
                         <a href=\"";
-        // line 48
+        // line 49
         echo $this->env->getExtension('routing')->getPath("BOSecurityBundle_logout");
         echo "\" title=\"\">Logout</a>
                     </li>
@@ -77,9 +77,15 @@ class __TwigTemplate_138657bd92d2f1d3559134fec1866427 extends Twig_Template
         </header>
         <div id=\"wrap\">
             <ul id=\"dash-sidemenu\">
-                <li class=\"m1\"><i class=\"icon-home icon-large mr10\"></i>Home</li>
+                <a href=\"";
+        // line 56
+        echo $this->env->getExtension('routing')->getPath("bo_back_office_homepage");
+        echo "\"><li class=\"m1\"><i class=\"icon-home icon-large mr10\"></i>Home</li></a>
                 <hr>
-                <li class=\"m2\"><i class=\"icon-user icon-large mr10\"></i>User</li>
+                <a href=\"";
+        // line 58
+        echo $this->env->getExtension('routing')->getPath("customer");
+        echo "\"><li class=\"m2\"><i class=\"icon-user icon-large mr10\"></i>Customers</li></a>
                 <hr>
                 <li class=\"m3\"><i class=\"icon-user icon-large mr10\"></i>Schedule</li>
                 <hr>
@@ -98,9 +104,9 @@ class __TwigTemplate_138657bd92d2f1d3559134fec1866427 extends Twig_Template
             </ul>
             <div id=\"dash-content\">
                 ";
-        // line 75
+        // line 76
         $this->displayBlock('body', $context, $blocks);
-        // line 77
+        // line 78
         echo "            </div>
         </div>
         <footer>
@@ -145,15 +151,19 @@ class __TwigTemplate_138657bd92d2f1d3559134fec1866427 extends Twig_Template
             <script src=\"http://code.jquery.com/ui/1.10.3/jquery-ui.min.js\"></script>
             <script src=\"";
         // line 16
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/bobackoffice/js/jquery.pajinate.min.js"), "html", null, true);
+        echo "\"></script>
+            <script src=\"";
+        // line 17
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/bobackoffice/js/main.js"), "html", null, true);
         echo "\"></script>
         ";
     }
 
-    // line 75
+    // line 76
     public function block_body($context, array $blocks = array())
     {
-        // line 76
+        // line 77
         echo "                ";
     }
 
@@ -169,6 +179,6 @@ class __TwigTemplate_138657bd92d2f1d3559134fec1866427 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  157 => 76,  154 => 75,  148 => 16,  144 => 14,  141 => 13,  135 => 10,  131 => 9,  127 => 8,  122 => 7,  119 => 6,  113 => 5,  104 => 77,  102 => 75,  72 => 48,  40 => 18,  38 => 13,  35 => 12,  33 => 6,  29 => 5,  23 => 1,);
+        return array (  167 => 77,  164 => 76,  158 => 17,  154 => 16,  150 => 14,  147 => 13,  141 => 10,  137 => 9,  133 => 8,  128 => 7,  125 => 6,  119 => 5,  110 => 78,  108 => 76,  87 => 58,  82 => 56,  72 => 49,  40 => 19,  38 => 13,  35 => 12,  33 => 6,  29 => 5,  23 => 1,);
     }
 }

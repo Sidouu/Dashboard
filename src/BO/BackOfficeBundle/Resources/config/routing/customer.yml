@@ -1,0 +1,34 @@
+customer:
+    pattern:  /
+    defaults: { _controller: "BOBackOfficeBundle:Customer:index" }
+
+customer_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "BOBackOfficeBundle:Customer:show" }
+
+customer_new:
+    pattern:  /new
+    defaults: { _controller: "BOBackOfficeBundle:Customer:new" }
+
+customer_create:
+    pattern:  /create
+    defaults: { _controller: "BOBackOfficeBundle:Customer:create" }
+    requirements: { _method: post }
+
+customer_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "BOBackOfficeBundle:Customer:edit" }
+
+customer_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "BOBackOfficeBundle:Customer:update" }
+    requirements: { _method: post|put }
+
+customer_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "BOBackOfficeBundle:Customer:delete" }
+    requirements: { _method: post|delete }
+
+customer_search:
+    pattern:  /search
+    defaults: { _controller: "BOBackOfficeBundle:Customer:search" }

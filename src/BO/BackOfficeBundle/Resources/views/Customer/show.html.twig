@@ -1,0 +1,102 @@
+{% extends 'BOBackOfficeBundle::layout.html.twig' %}
+
+{% block body -%}
+    {% autoescape false %}
+        <div class="dash-content-title title-red">
+            <i class="icon-user icon-large"></i>
+            <div class="pull-right">
+                <h1>> Customers</h1>
+            </div>
+        </div>
+        <div class="dash-content-body">
+            <h1 class="title">Customer<span class="line line-red"></span></h1>
+            <div class="clear-fix">
+                <a href="{{ path('customer') }}" class="pull-left pb20"><button class="btn-flat btn-flat-white h36"><i class="icon-home"></button></i></a>
+            </div>
+            <div class="unit unit-white">
+                <table class="record_properties">
+                    <tbody>
+                        <tr>
+                            <th>Id</th>
+                            <td>{{ entity.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Lastname</th>
+                            <td>{{ entity.lastName }}</td>
+                        </tr>
+                        <tr>
+                            <th>Firstname</th>
+                            <td>{{ entity.firstName }}</td>
+                        </tr>
+                        <tr>
+                            <th>Nextvisit</th>
+                            <td>{{ entity.nextVisit|date('Y-m-d H:i:s') }}</td>
+                        </tr>
+                        <tr>
+                            <th>Tour</th>
+                            <td>{{ entity.tour }}</td>
+                        </tr>
+                        <tr>
+                            <th>Address</th>
+                            <td>{{ entity.address }}</td>
+                        </tr>
+                        <tr>
+                            <th>Locality</th>
+                            <td>{{ entity.locality }}</td>
+                        </tr>
+                        <tr>
+                            <th>Postalcode</th>
+                            <td>{{ entity.postalCode }}</td>
+                        </tr>
+                        <tr>
+                            <th>City</th>
+                            <td>{{ entity.city }}</td>
+                        </tr>
+                        <tr>
+                            <th>Lastvisit</th>
+                            <td>{{ entity.lastVisit|date('Y-m-d H:i:s') }}</td>
+                        </tr>
+                        <tr>
+                            <th>Homephone</th>
+                            <td>{{ entity.homePhone }}</td>
+                        </tr>
+                        <tr>
+                            <th>Workphone</th>
+                            <td>{{ entity.workPhone }}</td>
+                        </tr>
+                        <tr>
+                            <th>Mobilephone</th>
+                            <td>{{ entity.mobilePhone }}</td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td>{{ entity.email }}</td>
+                        </tr>
+                        <tr>
+                            <th>Job</th>
+                            <td>{{ entity.job }}</td>
+                        </tr>
+                        <tr>
+                            <th>Notes</th>
+                            <td>{{ entity.notes }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr>
+                <a href="{{ path('customer_edit', { 'id': entity.id }) }}"><button class="btn-flat btn-flat-red">Edit</button></a>
+            </div>
+            <ul class="record_actions">
+                <li>
+                    
+                </li>
+                <li>
+                    <form action="{{ path('customer_delete', { 'id': entity.id }) }}" method="post">
+                        <input type="hidden" name="_method" value="DELETE" />
+                        {{ form_widget(delete_form) }}
+                        <button type="submit">Delete</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    {% endautoescape %}
+{% endblock %}

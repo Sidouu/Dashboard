@@ -1,7 +1,0 @@
-parameters:
-#    bo_customer.example.class: BO\CustomerBundle\Example
-
-services:
-#    bo_customer.example:
-#        class: %bo_customer.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]

@@ -58,7 +58,7 @@ class __TwigTemplate_93675948c9b3797a71df761bdf14c19a extends Twig_Template
         // line 17
         echo "\t";
         // line 18
-        echo "\t\t<div class=\"dash-content-title\">
+        echo "\t\t<div class=\"dash-content-title title-blue\">
             <i class=\"icon-home icon-large\"></i>
             <div class=\"pull-right\">
                 <h1>> Index statistiques</h1>

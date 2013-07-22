@@ -1,3 +1,0 @@
-bo_customer_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: BOCustomerBundle:Default:index }

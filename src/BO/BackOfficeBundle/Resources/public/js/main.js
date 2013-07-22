@@ -2,6 +2,15 @@ $(function() {
 	// INITIAL STATE
 	$("#dash-sidemenu").hide();
 
+	// HIDE ELEMENTS BY ESC
+	$(document).on('keydown', function (e) {
+	    if (e.keyCode === 27) {
+	        // $("#dash-sidemenu").hide();
+	        $("#dash-sidemenu").hide('slide');
+			$("header i.icon-reorder").removeClass('open');
+	    }
+	});
+
 	// NAV MAIN ACTIVE
 	$("nav.main ul a").click(function() {
 		$("nav.main ul a").each(function() {
@@ -37,6 +46,18 @@ $(function() {
 	// SIDEMENU
 	$("#icon-sidemenu").click(function() {
 		$("#dash-sidemenu").toggle('slide');
-		$("header i.icon-reorder").toggleClass('open')
+		$("header i.icon-reorder").toggleClass('open');
+	});
+
+	// SIDEMENU SIZE HEIGHT
+	var menuHeight = $(document).height() - $("header").height();
+	$("#dash-sidemenu").height(menuHeight);
+
+	// FORM CLASS CONTROLS
+	$("form div div").addClass("controls");
+
+	// PAGINATION LISTS
+	$('.pag-objects').pajinate({
+		items_per_page: 5
 	});
 });

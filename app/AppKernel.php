@@ -18,7 +18,6 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new BO\BackOfficeBundle\BOBackOfficeBundle(),
             new BO\SecurityBundle\BOSecurityBundle(),
-            new BO\CustomerBundle\BOCustomerBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
