@@ -3,15 +3,13 @@
 {% block body -%}
     {% autoescape false %}
         <div class="dash-content-title title-red">
-            <i class="icon-user icon-large"></i>
-            <div class="pull-right">
-                <h1>> Customers</h1>
+            <div id="navigation">
+                <a href="{{ path('customer') }}">Customers</a>
             </div>
         </div>
         <div class="dash-content-body">
             <h1 class="title">Customer list<span class="line line-red"></span></h1>
             <div class="clear-fix">
-                <a href="{{ path('customer') }}" class="pull-left"><button class="btn-flat btn-flat-white h36"><i class="icon-home"></button></i></a>
                 <form id="searchForm" class="pull-right clear-fix" action="{{ path('customer_search') }}" method="post" {{ form_enctype(search) }}>
                     <div class="controls">
                         {{ form_widget(search.lastName) }}

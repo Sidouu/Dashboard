@@ -336,6 +336,12 @@ li.sep {
     background-color: #FFFFFF;
 }
 
+.btn-none {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
 /* DASHBOARD */
 
 #wrap {
@@ -421,8 +427,8 @@ li.sep {
 .dash-content-title {
     background-color: #F7F6F2;
     border-bottom: 1px solid #CECCC0;
-    height: 80px;
-    line-height: 80px;
+    height: 40px;
+    line-height: 40px;
     padding: 0 20px;
 }
 
@@ -444,6 +450,10 @@ li.sep {
 }
 
 /* ENTITIES */
+
+#navigation a {
+    color: #58595B;
+}
 
 .unit {
     border: 1px solid #D8D8D8;

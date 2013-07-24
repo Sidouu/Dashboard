@@ -25,7 +25,7 @@ class CustomerType extends AbstractType
             ->add('mobilePhone')
             ->add('email')
             ->add('job')
-            ->add('notes')
+            ->add('notes', 'textarea', array('label' => 'Notes', 'required' => false))
         ;
     }
 

@@ -3,16 +3,12 @@
 {% block body -%}
     {% autoescape false %}
         <div class="dash-content-title title-red">
-            <i class="icon-user icon-large"></i>
-            <div class="pull-right">
-                <h1>> Customers</h1>
+            <div id="navigation">
+                <a href="{{ path('customer') }}">Customers</a> > <a href="{{ path('customer_new') }}">Create</a>
             </div>
         </div>
         <div class="dash-content-body">
             <h1 class="title">Customer creation<span class="line line-red"></span></h1>
-            <div class="clear-fix">
-                <a href="{{ path('customer') }}" class="pull-left pb20"><button class="btn-flat btn-flat-white h36"><i class="icon-home"></button></i></a>
-            </div>
             <div class="unit unit-grey">
                 <form action="{{ path('customer_create') }}" method="post" class="f400" {{ form_enctype(form) }}>
                     {{ form_widget(form) }}

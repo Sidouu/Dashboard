@@ -3,16 +3,12 @@
 {% block body -%}
     {% autoescape false %}
         <div class="dash-content-title title-red">
-            <i class="icon-user icon-large"></i>
-            <div class="pull-right">
-                <h1>> Customers</h1>
+            <div id="navigation">
+                <a href="{{ path('customer') }}">Customers</a> > <a href="{{ path('customer_show', { 'id': entity.id }) }}">Show</a>
             </div>
         </div>
         <div class="dash-content-body">
             <h1 class="title">Customer<span class="line line-red"></span></h1>
-            <div class="clear-fix">
-                <a href="{{ path('customer') }}" class="pull-left pb20"><button class="btn-flat btn-flat-white h36"><i class="icon-home"></button></i></a>
-            </div>
             <div class="unit unit-white">
                 <table class="record_properties">
                     <tbody>
@@ -93,7 +89,7 @@
                     <form action="{{ path('customer_delete', { 'id': entity.id }) }}" method="post">
                         <input type="hidden" name="_method" value="DELETE" />
                         {{ form_widget(delete_form) }}
-                        <button type="submit">Delete</button>
+                        <button type="submit" class="btn-none"><i class="icon-remove icon-large"></i></button>
                     </form>
                 </li>
             </ul>
