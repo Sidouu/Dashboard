@@ -208,6 +208,71 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             }
 
+            if (0 === strpos($pathinfo, '/admin/piano')) {
+                // piano
+                if (rtrim($pathinfo, '/') === '/admin/piano') {
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'piano');
+                    }
+
+                    return array (  '_controller' => 'BO\\BackOfficeBundle\\Controller\\PianoController::indexAction',  '_route' => 'piano',);
+                }
+
+                // piano_show
+                if (preg_match('#^/admin/piano/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'piano_show')), array (  '_controller' => 'BO\\BackOfficeBundle\\Controller\\PianoController::showAction',));
+                }
+
+                // piano_new
+                if ($pathinfo === '/admin/piano/new') {
+                    return array (  '_controller' => 'BO\\BackOfficeBundle\\Controller\\PianoController::newAction',  '_route' => 'piano_new',);
+                }
+
+                // piano_create
+                if ($pathinfo === '/admin/piano/create') {
+                    if ($this->context->getMethod() != 'POST') {
+                        $allow[] = 'POST';
+                        goto not_piano_create;
+                    }
+
+                    return array (  '_controller' => 'BO\\BackOfficeBundle\\Controller\\PianoController::createAction',  '_route' => 'piano_create',);
+                }
+                not_piano_create:
+
+                // piano_edit
+                if (preg_match('#^/admin/piano/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'piano_edit')), array (  '_controller' => 'BO\\BackOfficeBundle\\Controller\\PianoController::editAction',));
+                }
+
+                // piano_update
+                if (preg_match('#^/admin/piano/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                        $allow = array_merge($allow, array('POST', 'PUT'));
+                        goto not_piano_update;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'piano_update')), array (  '_controller' => 'BO\\BackOfficeBundle\\Controller\\PianoController::updateAction',));
+                }
+                not_piano_update:
+
+                // piano_delete
+                if (preg_match('#^/admin/piano/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                        $allow = array_merge($allow, array('POST', 'DELETE'));
+                        goto not_piano_delete;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'piano_delete')), array (  '_controller' => 'BO\\BackOfficeBundle\\Controller\\PianoController::deleteAction',));
+                }
+                not_piano_delete:
+
+                // piano_search
+                if ($pathinfo === '/admin/piano/search') {
+                    return array (  '_controller' => 'BO\\BackOfficeBundle\\Controller\\PianoController::searchAction',  '_route' => 'piano_search',);
+                }
+
+            }
+
             // BOSecurityBundle_homepage
             if (rtrim($pathinfo, '/') === '/admin') {
                 if (substr($pathinfo, -1) !== '/') {

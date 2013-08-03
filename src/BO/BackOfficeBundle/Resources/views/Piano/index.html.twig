@@ -1,0 +1,50 @@
+{% extends 'BOBackOfficeBundle::layout.html.twig' %}
+
+{% block body -%}
+    {% autoescape false %}
+        <div class="dash-content-title title-green">
+            <div id="navigation">
+                <a href="{{ path('piano') }}">Pianos</a>
+            </div>
+        </div>
+        <div class="dash-content-body">
+            <h1 class="title">Piano list<span class="line line-green"></span></h1>
+            <div class="clear-fix">
+                <form id="searchForm" class="pull-right clear-fix" action="{{ path('piano_search') }}" method="post" {{ form_enctype(search) }}>
+                    <div class="controls">
+                        {{ form_widget(search.name) }}
+                    </div>
+                    <div class="controls">
+                        <button type="submit" class="btn-flat btn-flat-white h36"><i class="icon-search"></i></button>
+                    </div>
+                </form>
+            </div>
+            <div class="unit unit-white">
+                <div class="pag-objects">
+                    <div class="objects-list">
+                        {% for entity in entities %}
+                            <div class="unit-table">
+                                <div class="unit-row">
+                                    <div class="unit-cell cell-img">
+                                        <a href="{{ path('piano_show', { 'id': entity.id }) }}"><img src="{{ asset('bundles/bobackoffice/images/avatar.png') }}" alt="avatar"></a>
+                                    </div>
+                                    <div class="unit-cell cell-content">
+                                        <h2><a href="{{ path('piano_show', { 'id': entity.id }) }}">{{ entity.name }} - {{ entity.brand }}</a></h2>
+                                        Last repair : {% if entity.repairDate %}{{ entity.repairDate|date('Y-m-d H:i:s') }}{% endif %}
+                                    </div>
+                                    <div class="unit-cell cell-action">
+                                        <a href="{{ path('piano_show', { 'id': entity.id }) }}"><button class="btn-flat btn-flat-white">Show</button></a>
+                                        <a href="{{ path('piano_edit', { 'id': entity.id }) }}"><button class="btn-flat btn-flat-white">Edit</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <hr>
+                    <div class="page_navigation"></div>
+                </div>
+            </div>
+            <a href="{{ path('piano_new') }}"><button class="btn-flat btn-flat-green">New</button></a>
+        </div>
+    {% endautoescape %}
+{% endblock %}

@@ -1,0 +1,39 @@
+BO\BackOfficeBundle\Entity\Piano:
+    type: entity
+    table: null
+    repositoryClass: BO\BackOfficeBundle\Entity\PianoRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        name:
+            type: string
+            length: 255
+        brand:
+            type: string
+            length: 255
+        model:
+            type: string
+            length: 255
+        number:
+            type: string
+            length: 255
+        repairPrice:
+            type: float
+        steelStrings:
+            type: integer
+        spunStrings:
+            type: integer
+        stringDate:
+            type: date
+        stringPrice:
+            type: float
+        quoteDate:
+            type: date
+        repairDate:
+            type: date
+        price:
+            type: float
+    lifecycleCallbacks: {  }

@@ -81,18 +81,11 @@
                 <hr>
                 <a href="{{ path('customer_edit', { 'id': entity.id }) }}"><button class="btn-flat btn-flat-red">Edit</button></a>
             </div>
-            <ul class="record_actions">
-                <li>
-                    
-                </li>
-                <li>
-                    <form action="{{ path('customer_delete', { 'id': entity.id }) }}" method="post">
-                        <input type="hidden" name="_method" value="DELETE" />
-                        {{ form_widget(delete_form) }}
-                        <button type="submit" class="btn-none"><i class="icon-remove icon-large"></i></button>
-                    </form>
-                </li>
-            </ul>
+            <form action="{{ path('customer_delete', { 'id': entity.id }) }}" method="post">
+                <input type="hidden" name="_method" value="DELETE" />
+                {{ form_widget(delete_form) }}
+                <button type="submit" class="btn-none"><i class="icon-remove icon-large"></i></button>
+            </form>
         </div>
     {% endautoescape %}
 {% endblock %}

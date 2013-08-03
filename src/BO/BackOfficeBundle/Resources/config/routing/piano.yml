@@ -1,0 +1,34 @@
+piano:
+    pattern:  /
+    defaults: { _controller: "BOBackOfficeBundle:Piano:index" }
+
+piano_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "BOBackOfficeBundle:Piano:show" }
+
+piano_new:
+    pattern:  /new
+    defaults: { _controller: "BOBackOfficeBundle:Piano:new" }
+
+piano_create:
+    pattern:  /create
+    defaults: { _controller: "BOBackOfficeBundle:Piano:create" }
+    requirements: { _method: post }
+
+piano_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "BOBackOfficeBundle:Piano:edit" }
+
+piano_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "BOBackOfficeBundle:Piano:update" }
+    requirements: { _method: post|put }
+
+piano_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "BOBackOfficeBundle:Piano:delete" }
+    requirements: { _method: post|delete }
+
+piano_search:
+    pattern:  /search
+    defaults: { _controller: "BOBackOfficeBundle:Piano:search" }

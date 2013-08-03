@@ -5,3 +5,7 @@ bo_back_office_homepage:
 BOBackOfficeBundle_customer:
     resource:  "@BOBackOfficeBundle/Resources/config/routing/customer.yml"
     prefix:     /customer
+
+BOBackOfficeBundle_piano:
+    resource:  "@BOBackOfficeBundle/Resources/config/routing/piano.yml"
+    prefix:     /piano

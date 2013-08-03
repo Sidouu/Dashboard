@@ -303,7 +303,7 @@ li.sep {
 }
 
 .btn-flat-green {
-    background-color: #7ebd26;
+    background-color: #70C67F;
 }
 
 .btn-flat-grey {
@@ -443,6 +443,10 @@ li.sep {
 
 .title-red {
     border-top: 5px solid #DE6262;
+}
+
+.title-green {
+    border-top: 5px solid #70C67F;
 }
 
 .dash-content-body {

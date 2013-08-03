@@ -87,7 +87,10 @@ class __TwigTemplate_138657bd92d2f1d3559134fec1866427 extends Twig_Template
         echo $this->env->getExtension('routing')->getPath("customer");
         echo "\"><li class=\"m2\"><i class=\"icon-user icon-large mr10\"></i>Customers</li></a>
                 <hr>
-                <li class=\"m3\"><i class=\"icon-user icon-large mr10\"></i>Schedule</li>
+                <a href=\"";
+        // line 60
+        echo $this->env->getExtension('routing')->getPath("piano");
+        echo "\"><li class=\"m3\"><i class=\"icon-user icon-large mr10\"></i>Pianos</li></a>
                 <hr>
                 <li class=\"m4\"><i class=\"icon-user icon-large mr10\"></i>Pages</li>
                 <hr>
@@ -179,6 +182,6 @@ class __TwigTemplate_138657bd92d2f1d3559134fec1866427 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  167 => 77,  164 => 76,  158 => 17,  154 => 16,  150 => 14,  147 => 13,  141 => 10,  137 => 9,  133 => 8,  128 => 7,  125 => 6,  119 => 5,  110 => 78,  108 => 76,  87 => 58,  82 => 56,  72 => 49,  40 => 19,  38 => 13,  35 => 12,  33 => 6,  29 => 5,  23 => 1,);
+        return array (  170 => 77,  167 => 76,  161 => 17,  157 => 16,  153 => 14,  150 => 13,  144 => 10,  140 => 9,  136 => 8,  131 => 7,  128 => 6,  122 => 5,  113 => 78,  111 => 76,  92 => 60,  87 => 58,  82 => 56,  72 => 49,  40 => 19,  38 => 13,  35 => 12,  33 => 6,  29 => 5,  23 => 1,);
     }
 }
