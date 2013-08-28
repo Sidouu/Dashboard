@@ -9,3 +9,7 @@ BOBackOfficeBundle_customer:
 BOBackOfficeBundle_piano:
     resource:  "@BOBackOfficeBundle/Resources/config/routing/piano.yml"
     prefix:     /piano
+
+BOBackOfficeBundle_bill:
+    resource:  "@BOBackOfficeBundle/Resources/config/routing/bill.yml"
+    prefix:     /bill

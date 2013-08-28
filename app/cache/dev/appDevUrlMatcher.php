@@ -273,6 +273,71 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             }
 
+            if (0 === strpos($pathinfo, '/admin/bill')) {
+                // bill
+                if (rtrim($pathinfo, '/') === '/admin/bill') {
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'bill');
+                    }
+
+                    return array (  '_controller' => 'BO\\BackOfficeBundle\\Controller\\BillController::indexAction',  '_route' => 'bill',);
+                }
+
+                // bill_show
+                if (preg_match('#^/admin/bill/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'bill_show')), array (  '_controller' => 'BO\\BackOfficeBundle\\Controller\\BillController::showAction',));
+                }
+
+                // bill_new
+                if ($pathinfo === '/admin/bill/new') {
+                    return array (  '_controller' => 'BO\\BackOfficeBundle\\Controller\\BillController::newAction',  '_route' => 'bill_new',);
+                }
+
+                // bill_create
+                if ($pathinfo === '/admin/bill/create') {
+                    if ($this->context->getMethod() != 'POST') {
+                        $allow[] = 'POST';
+                        goto not_bill_create;
+                    }
+
+                    return array (  '_controller' => 'BO\\BackOfficeBundle\\Controller\\BillController::createAction',  '_route' => 'bill_create',);
+                }
+                not_bill_create:
+
+                // bill_edit
+                if (preg_match('#^/admin/bill/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'bill_edit')), array (  '_controller' => 'BO\\BackOfficeBundle\\Controller\\BillController::editAction',));
+                }
+
+                // bill_update
+                if (preg_match('#^/admin/bill/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                        $allow = array_merge($allow, array('POST', 'PUT'));
+                        goto not_bill_update;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'bill_update')), array (  '_controller' => 'BO\\BackOfficeBundle\\Controller\\BillController::updateAction',));
+                }
+                not_bill_update:
+
+                // bill_delete
+                if (preg_match('#^/admin/bill/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                        $allow = array_merge($allow, array('POST', 'DELETE'));
+                        goto not_bill_delete;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'bill_delete')), array (  '_controller' => 'BO\\BackOfficeBundle\\Controller\\BillController::deleteAction',));
+                }
+                not_bill_delete:
+
+                // bill_search
+                if ($pathinfo === '/admin/bill/search') {
+                    return array (  '_controller' => 'BO\\BackOfficeBundle\\Controller\\BillController::searchAction',  '_route' => 'bill_search',);
+                }
+
+            }
+
             // BOSecurityBundle_homepage
             if (rtrim($pathinfo, '/') === '/admin') {
                 if (substr($pathinfo, -1) !== '/') {

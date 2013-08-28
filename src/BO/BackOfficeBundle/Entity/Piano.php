@@ -3,6 +3,7 @@
 namespace BO\BackOfficeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Piano
@@ -73,6 +74,18 @@ class Piano
      * @var float
      */
     private $price;
+
+    /**
+     * @ORM\OneToOne(targetEntity="BO\BackOfficeBundle\Entity\Customer", inversedBy="piano", cascade={"persist"})
+     * @ORM\JoinColumn(name="customerId", referencedColumnName="id")
+     */
+    private $customer;
+
+
+    // public function __toString()
+    // {
+    //     return $this->title;
+    // }
 
 
     /**
@@ -359,5 +372,28 @@ class Piano
     public function getPrice()
     {
         return $this->price;
+    }
+
+    /**
+     * Set customer
+     *
+     * @param \BO\BackOfficeBundle\Entity\Customer $customer
+     * @return Piano
+     */
+    public function setCustomer(\BO\BackOfficeBundle\Entity\Customer $customer = null)
+    {
+        $this->customer = $customer;
+    
+        return $this;
+    }
+
+    /**
+     * Get customer
+     *
+     * @return \BO\BackOfficeBundle\Entity\Customer 
+     */
+    public function getCustomer()
+    {
+        return $this->customer;
     }
 }

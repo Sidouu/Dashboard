@@ -319,6 +319,10 @@ li.sep {
     background-color: #DE6262;
 }
 
+.btn-flat-violet {
+    background-color: #9E62DE;
+}
+
 .btn-flat-white {
     background-color: #FFFFFF;
     color: #262626;
@@ -447,6 +451,10 @@ li.sep {
 
 .title-green {
     border-top: 5px solid #70C67F;
+}
+
+.title-violet {
+    border-top: 5px solid #9E62DE;
 }
 
 .dash-content-body {

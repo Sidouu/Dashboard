@@ -1,0 +1,54 @@
+{% extends 'BOBackOfficeBundle::layout.html.twig' %}
+
+{% block body -%}
+    {% autoescape false %}
+        <div class="dash-content-title title-green">
+            <div id="navigation">
+                <a href="{{ path('bill') }}">Bills</a>
+            </div>
+        </div>
+        <div class="dash-content-body">
+            <h1 class="title">Bill list<span class="line line-green"></span></h1>
+            <div class="clear-fix">
+                <form id="searchForm" class="pull-right clear-fix" action="{{ path('bill_search') }}" method="post" {{ form_enctype(search) }}>
+                    <div class="controls">
+                        {{ form_widget(search.client) }}
+                    </div>
+                    <div class="controls">
+                        <button type="submit" class="btn-flat btn-flat-white h36"><i class="icon-search"></i></button>
+                    </div>
+                </form>
+            </div>
+            <div class="unit unit-white">
+                {% if bills is not empty %}
+                    <div class="pag-objects">
+                        <div class="objects-list">
+                            {% for bill in bills %}
+                                <div class="unit-table">
+                                    <div class="unit-row">
+                                        <div class="unit-cell cell-img">
+                                            <a href="{{ path('bill_show', { 'id': bill.id }) }}"><img src="{{ asset('bundles/bobackoffice/images/avatar.png') }}" alt="avatar"></a>
+                                        </div>
+                                        <div class="unit-cell cell-content">
+                                            <h2><a href="{{ path('bill_show', { 'id': bill.id }) }}">{{ bill.client }}</a></h2>
+                                            Facture number : {{ bill.billNumber }}
+                                        </div>
+                                        <div class="unit-cell cell-action">
+                                            <a href="{{ path('bill_show', { 'id': bill.id }) }}"><button class="btn-flat btn-flat-white">Show</button></a>
+                                            <a href="{{ path('bill_edit', { 'id': bill.id }) }}"><button class="btn-flat btn-flat-white">Edit</button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <hr>
+                        <div class="page_navigation"></div>
+                    </div>
+                {% else %}
+                    Désolé, votre recherche n'a rien donné ! Veuillez renseigner une valeur correcte.
+                {% endif %}
+            </div>
+            <a href="{{ path('bill_new') }}"><button class="btn-flat btn-flat-green">New</button></a>
+        </div>
+    {% endautoescape %}
+{% endblock %}

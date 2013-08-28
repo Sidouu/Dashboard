@@ -36,4 +36,11 @@ BO\BackOfficeBundle\Entity\Piano:
             type: date
         price:
             type: float
+    oneToOne:
+        customer:
+            targetEntity: BO\BackOfficeBundle\Entity\Customer
+            inversedBy: piano
+            joinColumn:
+                customerId:
+                    referencedColumnName: id
     lifecycleCallbacks: {  }

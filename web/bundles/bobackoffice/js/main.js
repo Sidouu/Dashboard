@@ -5,7 +5,6 @@ $(function() {
 	// HIDE ELEMENTS BY ESC
 	$(document).on('keydown', function (e) {
 	    if (e.keyCode === 27) {
-	        // $("#dash-sidemenu").hide();
 	        $("#dash-sidemenu").hide('slide');
 			$("header i.icon-reorder").removeClass('open');
 	    }

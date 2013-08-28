@@ -1,0 +1,34 @@
+bill:
+    pattern:  /
+    defaults: { _controller: "BOBackOfficeBundle:Bill:index" }
+
+bill_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "BOBackOfficeBundle:Bill:show" }
+
+bill_new:
+    pattern:  /new
+    defaults: { _controller: "BOBackOfficeBundle:Bill:new" }
+
+bill_create:
+    pattern:  /create
+    defaults: { _controller: "BOBackOfficeBundle:Bill:create" }
+    requirements: { _method: post }
+
+bill_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "BOBackOfficeBundle:Bill:edit" }
+
+bill_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "BOBackOfficeBundle:Bill:update" }
+    requirements: { _method: post|put }
+
+bill_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "BOBackOfficeBundle:Bill:delete" }
+    requirements: { _method: post|delete }
+
+bill_search:
+    pattern:  /search
+    defaults: { _controller: "BOBackOfficeBundle:Bill:search" }

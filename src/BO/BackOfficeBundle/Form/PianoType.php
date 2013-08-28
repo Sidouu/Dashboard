@@ -11,18 +11,19 @@ class PianoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('customer')
             ->add('name')
             ->add('brand')
             ->add('model')
             ->add('number')
-            ->add('repairPrice')
-            ->add('steelStrings')
-            ->add('spunStrings')
+            ->add('repairPrice', 'money')
+            ->add('steelStrings', 'number')
+            ->add('spunStrings', 'number')
             ->add('stringDate')
-            ->add('stringPrice')
+            ->add('stringPrice', 'money')
             ->add('quoteDate')
             ->add('repairDate')
-            ->add('price')
+            ->add('price', 'money')
         ;
     }
 

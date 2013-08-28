@@ -1,0 +1,21 @@
+BO\BackOfficeBundle\Entity\Bill:
+    type: entity
+    table: null
+    repositoryClass: BO\BackOfficeBundle\Entity\BillRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        billNumber:
+            type: integer
+        client:
+            type: string
+            length: 255
+        content:
+            type: string
+            length: 255
+        price:
+            type: integer
+    lifecycleCallbacks: {  }
