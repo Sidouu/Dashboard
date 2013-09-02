@@ -12,9 +12,9 @@ class BillType extends AbstractType
     {
         $builder
             ->add('billNumber')
-            ->add('client')
             ->add('content')
             ->add('price')
+            ->add('customer')
         ;
     }
 

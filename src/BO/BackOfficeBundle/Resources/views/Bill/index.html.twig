@@ -12,7 +12,8 @@
             <div class="clear-fix">
                 <form id="searchForm" class="pull-right clear-fix" action="{{ path('bill_search') }}" method="post" {{ form_enctype(search) }}>
                     <div class="controls">
-                        {{ form_widget(search.client) }}
+                        {{ form_widget(search.customer) }}
+                        <!-- <input id="bo_backofficebundle_billtypesearch_customer" type="text" name="bo_backofficebundle_billtypesearch[customer]"> -->
                     </div>
                     <div class="controls">
                         <button type="submit" class="btn-flat btn-flat-white h36"><i class="icon-search"></i></button>
@@ -29,7 +30,7 @@
                                         <a href="{{ path('bill_show', { 'id': entity.id }) }}"><img src="{{ asset('bundles/bobackoffice/images/avatar.png') }}" alt="avatar"></a>
                                     </div>
                                     <div class="unit-cell cell-content">
-                                        <h2><a href="{{ path('bill_show', { 'id': entity.id }) }}">{{ entity.client }}</a></h2>
+                                        <h2><a href="{{ path('bill_show', { 'id': entity.id }) }}">{{ entity.customer }}</a></h2>
                                         Facture number : {{ entity.billNumber }}
                                     </div>
                                     <div class="unit-cell cell-action">

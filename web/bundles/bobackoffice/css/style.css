@@ -358,11 +358,12 @@ li.sep {
 #dash-sidemenu {
     background-color: #F2F2EA;
     border-right: 1px solid #D4D5D0;
-    min-height: 500px;
+    /*min-height: 500px;*/
     width: 198px;
     box-shadow: 1px 1px 2px #d4d5d0;
     position: absolute;
     z-index: 10;
+    height: 100%;
 }
 
 #dash-sidemenu li {

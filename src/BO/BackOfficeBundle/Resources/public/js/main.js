@@ -48,10 +48,6 @@ $(function() {
 		$("header i.icon-reorder").toggleClass('open');
 	});
 
-	// SIDEMENU SIZE HEIGHT
-	var menuHeight = $(document).height() - $("header").height();
-	$("#dash-sidemenu").height(menuHeight);
-
 	// FORM CLASS CONTROLS
 	$("form div div").addClass("controls");
 

@@ -2,17 +2,17 @@
 
 {% block body -%}
     {% autoescape false %}
-        <div class="dash-content-title title-green">
+        <div class="dash-content-title title-violet">
             <div id="navigation">
                 <a href="{{ path('bill') }}">Bills</a>
             </div>
         </div>
         <div class="dash-content-body">
-            <h1 class="title">Bill list<span class="line line-green"></span></h1>
+            <h1 class="title">Bill list<span class="line line-violet"></span></h1>
             <div class="clear-fix">
                 <form id="searchForm" class="pull-right clear-fix" action="{{ path('bill_search') }}" method="post" {{ form_enctype(search) }}>
                     <div class="controls">
-                        {{ form_widget(search.client) }}
+                        {{ form_widget(search.customer) }}
                     </div>
                     <div class="controls">
                         <button type="submit" class="btn-flat btn-flat-white h36"><i class="icon-search"></i></button>
@@ -30,7 +30,7 @@
                                             <a href="{{ path('bill_show', { 'id': bill.id }) }}"><img src="{{ asset('bundles/bobackoffice/images/avatar.png') }}" alt="avatar"></a>
                                         </div>
                                         <div class="unit-cell cell-content">
-                                            <h2><a href="{{ path('bill_show', { 'id': bill.id }) }}">{{ bill.client }}</a></h2>
+                                            <h2><a href="{{ path('bill_show', { 'id': bill.id }) }}">{{ bill.customer }}</a></h2>
                                             Facture number : {{ bill.billNumber }}
                                         </div>
                                         <div class="unit-cell cell-action">
@@ -48,7 +48,7 @@
                     Désolé, votre recherche n'a rien donné ! Veuillez renseigner une valeur correcte.
                 {% endif %}
             </div>
-            <a href="{{ path('bill_new') }}"><button class="btn-flat btn-flat-green">New</button></a>
+            <a href="{{ path('bill_new') }}"><button class="btn-flat btn-flat-violet">New</button></a>
         </div>
     {% endautoescape %}
 {% endblock %}

@@ -23,17 +23,18 @@ class Bill
     /**
      * @var string
      */
-    private $client;
-
-    /**
-     * @var string
-     */
     private $content;
 
     /**
      * @var integer
      */
     private $price;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Customer")
+     * @ORM\JoinColumn(name="customerId", referencedColumnName="id")
+     */
+    private $customer;
 
 
     /**
@@ -44,29 +45,6 @@ class Bill
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set client
-     *
-     * @param string $client
-     * @return Bill
-     */
-    public function setClient($client)
-    {
-        $this->client = $client;
-    
-        return $this;
-    }
-
-    /**
-     * Get client
-     *
-     * @return string 
-     */
-    public function getClient()
-    {
-        return $this->client;
     }
 
     /**
@@ -136,5 +114,25 @@ class Bill
     public function getBillNumber()
     {
         return $this->billNumber;
+    }
+
+    /**
+     * Set customer
+     *
+     * @param BO\BackOfficeBundle\Entity $customer
+     */
+    public function setCustomer(\BO\BackOfficeBundle\Entity\Customer $customer)
+    {
+        $this->customer = $customer;
+    }
+
+    /**
+     * Get customer
+     *
+     * @return BO\BackOfficeBundle\Entity\Customer 
+     */
+    public function getCustomer()
+    {
+        return $this->customer;
     }
 }

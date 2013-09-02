@@ -2,13 +2,13 @@
 
 {% block body -%}
     {% autoescape false %}
-        <div class="dash-content-title title-green">
+        <div class="dash-content-title title-violet">
             <div id="navigation">
                 <a href="{{ path('bill') }}">Bills</a> > <a href="{{ path('bill_show', { 'id': entity.id }) }}">Show</a>
             </div>
         </div>
         <div class="dash-content-body">
-            <h1 class="title">Bill<span class="line line-green"></span></h1>
+            <h1 class="title">Bill<span class="line line-violet"></span></h1>
             <div class="unit unit-white">
                 <table class="record_properties">
                     <tbody>
@@ -21,10 +21,6 @@
                             <td>{{ entity.billNumber }}</td>
                         </tr>
                         <tr>
-                            <th>Client</th>
-                            <td>{{ entity.client }}</td>
-                        </tr>
-                        <tr>
                             <th>Content</th>
                             <td>{{ entity.content }}</td>
                         </tr>
@@ -32,10 +28,14 @@
                             <th>Price</th>
                             <td>{{ entity.price }}</td>
                         </tr>
+                        <tr>
+                            <th>Customer</th>
+                            <td>{{ entity.customer }}</td>
+                        </tr>
                     </tbody>
                 </table>
                 <hr>
-                <a href="{{ path('bill_edit', { 'id': entity.id }) }}"><button class="btn-flat btn-flat-green">Edit</button></a>
+                <a href="{{ path('bill_edit', { 'id': entity.id }) }}"><button class="btn-flat btn-flat-violet">Edit</button></a>
             </div>
             <form action="{{ path('bill_delete', { 'id': entity.id }) }}" method="post">
                 <input type="hidden" name="_method" value="DELETE" />

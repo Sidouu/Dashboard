@@ -2,18 +2,18 @@
 
 {% block body -%}
     {% autoescape false %}
-        <div class="dash-content-title title-green">
+        <div class="dash-content-title title-violet">
             <div id="navigation">
                 <a href="{{ path('bill') }}">Bills</a> > <a href="{{ path('bill_new') }}">Create</a>
             </div>
         </div>
         <div class="dash-content-body">
-            <h1 class="title">Bill creation<span class="line line-green"></span></h1>
+            <h1 class="title">Bill creation<span class="line line-violet"></span></h1>
             <div class="unit unit-grey">
                 <form action="{{ path('bill_create') }}" method="post" class="f400" {{ form_enctype(form) }}>
                     {{ form_widget(form) }}
                     <div class="controls">
-                        <button type="submit" class="btn-flat btn-flat-green">Create</button>
+                        <button type="submit" class="btn-flat btn-flat-violet">Create</button>
                     </div>
                 </form>
             </div>

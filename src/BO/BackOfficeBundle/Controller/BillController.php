@@ -192,12 +192,14 @@ class BillController extends Controller
 
         if( $request->getMethod() == 'POST' ) {
             $form = $request->get('bo_backofficebundle_billtypesearch');
-            $name = $form['client'];
+            $name = $form['customer'];
         }
+
+        var_dump($name);die;
 
         $em = $this->getDoctrine()->getEntityManager();
 
-        $bills = $em->getRepository('BOBackOfficeBundle:Bill')->findByClient($name);
+        $bills = $em->getRepository('BOBackOfficeBundle:Bill')->findByCustomer($name);
         $search   = $this->createForm(new BillTypeSearch());
 
         return $this->render('BOBackOfficeBundle:Bill:search.html.twig', array(

@@ -10,12 +10,12 @@ BO\BackOfficeBundle\Entity\Bill:
                 strategy: AUTO
         billNumber:
             type: integer
-        client:
-            type: string
-            length: 255
         content:
             type: string
             length: 255
         price:
             type: integer
+    manyToOne:
+        customer:
+            targetEntity: Customer
     lifecycleCallbacks: {  }
