@@ -46,8 +46,4 @@ BO\BackOfficeBundle\Entity\Customer:
         notes:
             type: string
             length: 255
-    oneToOne:
-        piano:
-            targetEntity: Piano
-            mappedBy: customer
     lifecycleCallbacks: {  }

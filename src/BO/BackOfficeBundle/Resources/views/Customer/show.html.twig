@@ -77,8 +77,12 @@
                             <td>{{ entity.notes }}</td>
                         </tr>
                         <tr>
-                            <th>Piano</th>
-                            <td>{{ entity.piano.name }}</td>
+                            <th>Piano(s)</th>
+                            <td>
+                                {% for piano in pianos %}
+                                    <a href="{{ path('piano_show', { 'id': piano.id }) }}"><strong>{{ piano.name }}</strong></a> |
+                                {% endfor %}
+                            </td>
                         </tr>
                     </tbody>
                 </table>

@@ -76,16 +76,10 @@ class Piano
     private $price;
 
     /**
-     * @ORM\OneToOne(targetEntity="BO\BackOfficeBundle\Entity\Customer", inversedBy="piano", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Customer")
      * @ORM\JoinColumn(name="customerId", referencedColumnName="id")
      */
     private $customer;
-
-
-    // public function __toString()
-    // {
-    //     return $this->title;
-    // }
 
 
     /**
@@ -377,20 +371,17 @@ class Piano
     /**
      * Set customer
      *
-     * @param \BO\BackOfficeBundle\Entity\Customer $customer
-     * @return Piano
+     * @param BO\BackOfficeBundle\Entity $customer
      */
-    public function setCustomer(\BO\BackOfficeBundle\Entity\Customer $customer = null)
+    public function setCustomer(\BO\BackOfficeBundle\Entity\Customer $customer)
     {
         $this->customer = $customer;
-    
-        return $this;
     }
 
     /**
      * Get customer
      *
-     * @return \BO\BackOfficeBundle\Entity\Customer 
+     * @return BO\BackOfficeBundle\Entity\Customer 
      */
     public function getCustomer()
     {

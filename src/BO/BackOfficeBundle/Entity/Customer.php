@@ -90,11 +90,6 @@ class Customer
      */
     private $notes;
 
-    /**
-     * @ORM\OneToOne(targetEntity="Piano", mappedBy="customer")
-     */
-    private $piano;
-
 
     public function __toString()
     {
@@ -455,28 +450,5 @@ class Customer
     public function getNotes()
     {
         return $this->notes;
-    }
-
-    /**
-     * Set piano
-     *
-     * @param \BO\BackOfficeBundle\Entity\Piano $piano
-     * @return Customer
-     */
-    public function setPiano(\BO\BackOfficeBundle\Entity\Piano $piano = null)
-    {
-        $this->piano = $piano;
-    
-        return $this;
-    }
-
-    /**
-     * Get piano
-     *
-     * @return \BO\BackOfficeBundle\Entity\Piano 
-     */
-    public function getPiano()
-    {
-        return $this->piano;
     }
 }
