@@ -1,0 +1,51 @@
+{% extends 'BOBackOfficeBundle::layout.html.twig' %}
+
+{% block body -%}
+    {% autoescape false %}
+        <div class="dash-content-title title-blue-dark">
+            <div id="navigation">
+                <a href="{{ path('quote') }}">Quotes</a> > <a href="{{ path('quote_show', { 'id': entity.id }) }}">Show</a>
+            </div>
+        </div>
+        <div class="dash-content-body">
+            <h1 class="title">Quote<span class="line line-blue-dark"></span></h1>
+            <div class="unit unit-white">
+                <table class="record_properties">
+                    <tbody>
+                        <tr>
+                            <th>Id</th>
+                            <td>{{ entity.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Quotenumber</th>
+                            <td>{{ entity.quoteNumber }}</td>
+                        </tr>
+                        <tr>
+                            <th>Content</th>
+                            <td>{{ entity.content }}</td>
+                        </tr>
+                        <tr>
+                            <th>Price</th>
+                            <td>{{ entity.price }}</td>
+                        </tr>
+                        <tr>
+                            <th>Customer</th>
+                            <td>{{ entity.customer }}</td>
+                        </tr>
+                        <tr>
+                            <th>Createddate</th>
+                            <td>{{ entity.createdDate|date('Y-m-d H:i:s') }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr>
+                <a href="{{ path('quote_edit', { 'id': entity.id }) }}"><button class="btn-flat btn-flat-blue-dark">Edit</button></a>
+            </div>
+            <form action="{{ path('quote_delete', { 'id': entity.id }) }}" method="post">
+                <input type="hidden" name="_method" value="DELETE" />
+                {{ form_widget(delete_form) }}
+                <button type="submit" class="btn-none"><i class="icon-remove icon-large"></i></button>
+            </form>
+        </div>
+    {% endautoescape %}
+{% endblock %}

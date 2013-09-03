@@ -13,3 +13,7 @@ BOBackOfficeBundle_piano:
 BOBackOfficeBundle_bill:
     resource:  "@BOBackOfficeBundle/Resources/config/routing/bill.yml"
     prefix:     /bill
+
+BOBackOfficeBundle_quote:
+    resource:  "@BOBackOfficeBundle/Resources/config/routing/quote.yml"
+    prefix:     /quote

@@ -338,6 +338,71 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             }
 
+            if (0 === strpos($pathinfo, '/admin/quote')) {
+                // quote
+                if (rtrim($pathinfo, '/') === '/admin/quote') {
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'quote');
+                    }
+
+                    return array (  '_controller' => 'BO\\BackOfficeBundle\\Controller\\QuoteController::indexAction',  '_route' => 'quote',);
+                }
+
+                // quote_show
+                if (preg_match('#^/admin/quote/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'quote_show')), array (  '_controller' => 'BO\\BackOfficeBundle\\Controller\\QuoteController::showAction',));
+                }
+
+                // quote_new
+                if ($pathinfo === '/admin/quote/new') {
+                    return array (  '_controller' => 'BO\\BackOfficeBundle\\Controller\\QuoteController::newAction',  '_route' => 'quote_new',);
+                }
+
+                // quote_create
+                if ($pathinfo === '/admin/quote/create') {
+                    if ($this->context->getMethod() != 'POST') {
+                        $allow[] = 'POST';
+                        goto not_quote_create;
+                    }
+
+                    return array (  '_controller' => 'BO\\BackOfficeBundle\\Controller\\QuoteController::createAction',  '_route' => 'quote_create',);
+                }
+                not_quote_create:
+
+                // quote_edit
+                if (preg_match('#^/admin/quote/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'quote_edit')), array (  '_controller' => 'BO\\BackOfficeBundle\\Controller\\QuoteController::editAction',));
+                }
+
+                // quote_update
+                if (preg_match('#^/admin/quote/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                        $allow = array_merge($allow, array('POST', 'PUT'));
+                        goto not_quote_update;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'quote_update')), array (  '_controller' => 'BO\\BackOfficeBundle\\Controller\\QuoteController::updateAction',));
+                }
+                not_quote_update:
+
+                // quote_delete
+                if (preg_match('#^/admin/quote/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                        $allow = array_merge($allow, array('POST', 'DELETE'));
+                        goto not_quote_delete;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'quote_delete')), array (  '_controller' => 'BO\\BackOfficeBundle\\Controller\\QuoteController::deleteAction',));
+                }
+                not_quote_delete:
+
+                // quote_search
+                if ($pathinfo === '/admin/quote/search') {
+                    return array (  '_controller' => 'BO\\BackOfficeBundle\\Controller\\QuoteController::searchAction',  '_route' => 'quote_search',);
+                }
+
+            }
+
             // BOSecurityBundle_homepage
             if (rtrim($pathinfo, '/') === '/admin') {
                 if (substr($pathinfo, -1) !== '/') {

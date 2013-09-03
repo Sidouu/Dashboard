@@ -2,15 +2,15 @@
 
 {% block body -%}
     {% autoescape false %}
-        <div class="dash-content-title title-violet">
+        <div class="dash-content-title title-blue-dark">
             <div id="navigation">
-                <a href="{{ path('bill') }}">Bills</a>
+                <a href="{{ path('quote') }}">Quotes</a>
             </div>
         </div>
         <div class="dash-content-body">
-            <h1 class="title">Bill list<span class="line line-violet"></span></h1>
+            <h1 class="title">Quote list<span class="line line-blue-dark"></span></h1>
             <div class="clear-fix">
-                <form id="searchForm" class="pull-right clear-fix" action="{{ path('bill_search') }}" method="post" {{ form_enctype(search) }}>
+                <form id="searchForm" class="pull-right clear-fix" action="{{ path('quote_search') }}" method="post" {{ form_enctype(search) }}>
                     <div class="controls">
                         {{ form_widget(search.customer) }}
                     </div>
@@ -26,15 +26,15 @@
                             <div class="unit-table">
                                 <div class="unit-row">
                                     <div class="unit-cell cell-img">
-                                        <a href="{{ path('bill_show', { 'id': entity.id }) }}"><img src="{{ asset('bundles/bobackoffice/images/avatar.png') }}" alt="avatar"></a>
+                                        <a href="{{ path('quote_show', { 'id': entity.id }) }}"><img src="{{ asset('bundles/bobackoffice/images/avatar.png') }}" alt="avatar"></a>
                                     </div>
                                     <div class="unit-cell cell-content">
-                                        <h2><a href="{{ path('bill_show', { 'id': entity.id }) }}">{{ entity.customer }}</a></h2>
-                                        Bill {{ entity.billNumber }} | Created at : {{ entity.createdDate|date('Y-m-d H:i:s') }}
+                                        <h2><a href="{{ path('quote_show', { 'id': entity.id }) }}">{{ entity.customer }}</a></h2>
+                                        Quote {{ entity.quoteNumber }} | Created at : {{ entity.createdDate|date('Y-m-d H:i:s') }}
                                     </div>
                                     <div class="unit-cell cell-action">
-                                        <a href="{{ path('bill_show', { 'id': entity.id }) }}"><button class="btn-flat btn-flat-white">Show</button></a>
-                                        <a href="{{ path('bill_edit', { 'id': entity.id }) }}"><button class="btn-flat btn-flat-white">Edit</button></a>
+                                        <a href="{{ path('quote_show', { 'id': entity.id }) }}"><button class="btn-flat btn-flat-white">Show</button></a>
+                                        <a href="{{ path('quote_edit', { 'id': entity.id }) }}"><button class="btn-flat btn-flat-white">Edit</button></a>
                                     </div>
                                 </div>
                             </div>
@@ -44,7 +44,7 @@
                     <div class="page_navigation"></div>
                 </div>
             </div>
-            <a href="{{ path('bill_new') }}"><button class="btn-flat btn-flat-violet">New</button></a>
+            <a href="{{ path('quote_new') }}"><button class="btn-flat btn-flat-blue-dark">New</button></a>
         </div>
     {% endautoescape %}
 {% endblock %}

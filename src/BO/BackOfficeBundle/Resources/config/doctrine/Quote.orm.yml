@@ -1,0 +1,23 @@
+BO\BackOfficeBundle\Entity\Quote:
+    type: entity
+    table: null
+    repositoryClass: BO\BackOfficeBundle\Entity\QuoteRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        quoteNumber:
+            type: integer
+        content:
+            type: string
+            length: 255
+        price:
+            type: integer
+        createdDate:
+            type: datetime
+    manyToOne:
+        customer:
+            targetEntity: Customer
+    lifecycleCallbacks: {  }

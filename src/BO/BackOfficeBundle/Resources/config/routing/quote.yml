@@ -1,0 +1,34 @@
+quote:
+    pattern:  /
+    defaults: { _controller: "BOBackOfficeBundle:Quote:index" }
+
+quote_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "BOBackOfficeBundle:Quote:show" }
+
+quote_new:
+    pattern:  /new
+    defaults: { _controller: "BOBackOfficeBundle:Quote:new" }
+
+quote_create:
+    pattern:  /create
+    defaults: { _controller: "BOBackOfficeBundle:Quote:create" }
+    requirements: { _method: post }
+
+quote_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "BOBackOfficeBundle:Quote:edit" }
+
+quote_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "BOBackOfficeBundle:Quote:update" }
+    requirements: { _method: post|put }
+
+quote_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "BOBackOfficeBundle:Quote:delete" }
+    requirements: { _method: post|delete }
+
+quote_search:
+    pattern:  /search
+    defaults: { _controller: "BOBackOfficeBundle:Quote:search" }

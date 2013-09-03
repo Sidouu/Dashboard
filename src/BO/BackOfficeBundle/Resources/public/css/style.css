@@ -72,6 +72,18 @@ hr {
     background: none repeat scroll 0 0 #DE6262;
 }
 
+.line-green {
+    background: none repeat scroll 0 0 #70C67F;
+}
+
+.line-blue-dark {
+    background: none repeat scroll 0 0 #6270db;
+}
+
+.line-violet {
+    background: none repeat scroll 0 0 #9E62DE;
+}
+
 .center {
 	text-align: center;
 }
@@ -323,6 +335,10 @@ li.sep {
     background-color: #9E62DE;
 }
 
+.btn-flat-blue-dark {
+    background-color: #6270db;
+}
+
 .btn-flat-white {
     background-color: #FFFFFF;
     color: #262626;
@@ -389,11 +405,11 @@ li.sep {
 }
 
 #dash-sidemenu li.m4 {
-    border-left: 5px solid #9e62de;
+    border-left: 5px solid #6270db;
 }
 
 #dash-sidemenu li.m5 {
-    border-left: 5px solid #6270db;
+    border-left: 5px solid #9e62de;
 }
 
 #dash-sidemenu li.m6 {
@@ -456,6 +472,10 @@ li.sep {
 
 .title-violet {
     border-top: 5px solid #9E62DE;
+}
+
+.title-blue-dark {
+    border-top: 5px solid #6270db;
 }
 
 .dash-content-body {

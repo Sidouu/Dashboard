@@ -94,10 +94,13 @@ class __TwigTemplate_138657bd92d2f1d3559134fec1866427 extends Twig_Template
                 <hr>
                 <a href=\"";
         // line 62
-        echo $this->env->getExtension('routing')->getPath("bill");
-        echo "\"><li class=\"m4\"><i class=\"icon-file-text icon-large mr10\"></i>Bills</li></a>
+        echo $this->env->getExtension('routing')->getPath("quote");
+        echo "\"><li class=\"m4\"><i class=\"icon-file-text icon-large mr10\"></i>Quotes</li></a>
                 <hr>
-                <li class=\"m5\"><i class=\"icon-user icon-large mr10\"></i>Papers</li>
+                <a href=\"";
+        // line 64
+        echo $this->env->getExtension('routing')->getPath("bill");
+        echo "\"><li class=\"m5\"><i class=\"icon-file icon-large mr10\"></i>Bills</li></a>
                 <hr>
                 <li class=\"m6\"><i class=\"icon-user icon-large mr10\"></i>Administration</li>
                 <hr>
@@ -185,6 +188,6 @@ class __TwigTemplate_138657bd92d2f1d3559134fec1866427 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  173 => 77,  170 => 76,  164 => 17,  160 => 16,  156 => 14,  153 => 13,  147 => 10,  143 => 9,  139 => 8,  134 => 7,  131 => 6,  125 => 5,  116 => 78,  114 => 76,  97 => 62,  92 => 60,  87 => 58,  82 => 56,  72 => 49,  40 => 19,  38 => 13,  35 => 12,  33 => 6,  29 => 5,  23 => 1,);
+        return array (  176 => 77,  173 => 76,  167 => 17,  163 => 16,  159 => 14,  156 => 13,  150 => 10,  146 => 9,  142 => 8,  137 => 7,  134 => 6,  128 => 5,  119 => 78,  117 => 76,  102 => 64,  97 => 62,  92 => 60,  87 => 58,  82 => 56,  72 => 49,  40 => 19,  38 => 13,  35 => 12,  33 => 6,  29 => 5,  23 => 1,);
     }
 }

@@ -81,6 +81,7 @@ class CustomerController extends Controller
 
         $entity = $em->getRepository('BOBackOfficeBundle:Customer')->find($id);
         $pianos = $em->getRepository('BOBackOfficeBundle:Piano')->findByCustomer($id);
+        $quotes = $em->getRepository('BOBackOfficeBundle:Quote')->findByCustomer($id);
         $bills = $em->getRepository('BOBackOfficeBundle:Bill')->findByCustomer($id);
 
         if (!$entity) {
@@ -92,6 +93,7 @@ class CustomerController extends Controller
         return $this->render('BOBackOfficeBundle:Customer:show.html.twig', array(
             'entity'      => $entity,
             'pianos'      => $pianos,
+            'quotes'       => $quotes,
             'bills'       => $bills,
             'delete_form' => $deleteForm->createView(),        ));
     }
