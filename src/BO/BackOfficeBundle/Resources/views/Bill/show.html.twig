@@ -32,6 +32,14 @@
                             <th>Customer</th>
                             <td>{{ entity.customer }}</td>
                         </tr>
+                        <tr>
+                            <th>Createddate</th>
+                            <td>{{ entity.createdDate|date('Y-m-d H:i:s') }}</td>
+                        </tr>
+                        <tr>
+                            <th>Paydate</th>
+                            <td>{{ entity.payDate|date('Y-m-d H:i:s') }}</td>
+                        </tr>
                     </tbody>
                 </table>
                 <hr>

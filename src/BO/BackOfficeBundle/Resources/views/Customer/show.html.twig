@@ -83,6 +83,12 @@
                     </tbody>
                 </table>
                 <hr>
+                <ul>
+                    {% for bill in bills %}
+                        <li><a href="{{ path('bill_show', { 'id': bill.id }) }}"><strong>Facture {{ bill.billNumber }} du {{ bill.createdDate|date('Y-m-d') }}</strong></a></li> |
+                    {% endfor %}
+                </ul>
+                <hr>
                 <a href="{{ path('customer_edit', { 'id': entity.id }) }}"><button class="btn-flat btn-flat-red">Edit</button></a>
             </div>
             <form action="{{ path('customer_delete', { 'id': entity.id }) }}" method="post">

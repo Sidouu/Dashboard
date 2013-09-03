@@ -31,10 +31,32 @@ class Bill
     private $price;
 
     /**
+     * @var datetime $createdDate
+     *
+     * @ORM\Column(name="createdDate", type="datetime")
+     */
+    private $createdDate;
+
+    /**
+     * @var datetime $payDate
+     *
+     * @ORM\Column(name="payDate", type="datetime")
+     */
+    private $payDate;
+
+    /**
      * @ORM\ManyToOne(targetEntity="Customer")
      * @ORM\JoinColumn(name="customerId", referencedColumnName="id")
      */
     private $customer;
+
+
+    public function __construct()
+    {
+        $this->createdDate = new \Datetime();
+        $datetime = new \Datetime();
+        $this->payDate = $datetime->modify('+1 months');
+    }
 
 
     /**
@@ -114,6 +136,46 @@ class Bill
     public function getBillNumber()
     {
         return $this->billNumber;
+    }
+
+    /**
+     * Set createdDate
+     *
+     * @param datetime $createdDate
+     */
+    public function setCreatedDate(\Datetime $createdDate)
+    {
+        $this->createdDate = $createdDate;
+    }
+
+    /**
+     * Get createdDate
+     *
+     * @return datetime
+     */
+    public function getCreatedDate()
+    {
+        return $this->createdDate;
+    }
+
+    /**
+     * Set payDate
+     *
+     * @param datetime $payDate
+     */
+    public function setPayDate(\Datetime $payDate)
+    {
+        $this->payDate = $payDate;
+    }
+
+    /**
+     * Get payDate
+     *
+     * @return datetime
+     */
+    public function getPayDate()
+    {
+        return $this->payDate;
     }
 
     /**

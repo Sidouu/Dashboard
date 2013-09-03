@@ -31,7 +31,7 @@
                                     </div>
                                     <div class="unit-cell cell-content">
                                         <h2><a href="{{ path('bill_show', { 'id': entity.id }) }}">{{ entity.customer }}</a></h2>
-                                        Facture number : {{ entity.billNumber }}
+                                        Facture {{ entity.billNumber }} | Created at : {{ entity.createdDate|date('Y-m-d H:i:s') }}
                                     </div>
                                     <div class="unit-cell cell-action">
                                         <a href="{{ path('bill_show', { 'id': entity.id }) }}"><button class="btn-flat btn-flat-white">Show</button></a>

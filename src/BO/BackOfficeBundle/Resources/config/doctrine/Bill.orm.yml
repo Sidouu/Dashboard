@@ -15,6 +15,10 @@ BO\BackOfficeBundle\Entity\Bill:
             length: 255
         price:
             type: integer
+        createdDate:
+            type: datetime
+        payDate:
+            type: datetime
     manyToOne:
         customer:
             targetEntity: Customer

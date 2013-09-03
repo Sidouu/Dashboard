@@ -195,8 +195,6 @@ class BillController extends Controller
             $name = $form['customer'];
         }
 
-        var_dump($name);die;
-
         $em = $this->getDoctrine()->getEntityManager();
 
         $bills = $em->getRepository('BOBackOfficeBundle:Bill')->findByCustomer($name);

@@ -80,6 +80,7 @@ class CustomerController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('BOBackOfficeBundle:Customer')->find($id);
+        $bills = $em->getRepository('BOBackOfficeBundle:Bill')->findByCustomer($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Customer entity.');
@@ -89,6 +90,7 @@ class CustomerController extends Controller
 
         return $this->render('BOBackOfficeBundle:Customer:show.html.twig', array(
             'entity'      => $entity,
+            'bills'       => $bills,
             'delete_form' => $deleteForm->createView(),        ));
     }
 
