@@ -336,6 +336,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                     return array (  '_controller' => 'BO\\BackOfficeBundle\\Controller\\BillController::searchAction',  '_route' => 'bill_search',);
                 }
 
+                // bill_print
+                if (preg_match('#^/admin/bill/(?P<id>[^/]++)/print$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'bill_print')), array (  '_controller' => 'BO\\BackOfficeBundle\\Controller\\BillController::printAction',));
+                }
+
             }
 
             if (0 === strpos($pathinfo, '/admin/quote')) {

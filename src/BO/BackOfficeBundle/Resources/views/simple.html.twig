@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Backoffice{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+            <link rel="stylesheet" href="{{ asset('bundles/bobackoffice/css/print.css') }}" type="text/css" />
+        {% endblock %}
+        
+        {% block javascripts %}
+        {% endblock %}
+    </head>
+    <body>
+        <div id="wrap">
+            {% block body %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

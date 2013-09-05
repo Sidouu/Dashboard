@@ -24,7 +24,9 @@ class BillController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('BOBackOfficeBundle:Bill')->findAll();
+        $entities = $em->getRepository('BOBackOfficeBundle:Bill')->findBy(
+            array(),
+            array('createdDate' => 'DESC'));
         $search   = $this->createForm(new BillTypeSearch());
 
         return $this->render('BOBackOfficeBundle:Bill:index.html.twig', array(
@@ -197,12 +199,31 @@ class BillController extends Controller
 
         $em = $this->getDoctrine()->getEntityManager();
 
-        $bills = $em->getRepository('BOBackOfficeBundle:Bill')->findByCustomer($name);
+        $bills = $em->getRepository('BOBackOfficeBundle:Bill')->findBy(
+            array('customer' => $name),
+            array('createdDate' => 'DESC'));
         $search   = $this->createForm(new BillTypeSearch());
 
         return $this->render('BOBackOfficeBundle:Bill:search.html.twig', array(
             'bills'      => $bills,
             'search' => $search->createView()
         ));
+    }
+
+    public function printAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $bill = $em->getRepository('BOBackOfficeBundle:Bill')->find($id);
+
+        if (!$bill) {
+            throw $this->createNotFoundException('Unable to find Bill entity.');
+        }
+
+        $deleteForm = $this->createDeleteForm($id);
+
+        return $this->render('BOBackOfficeBundle:Bill:print.html.twig', array(
+            'bill'      => $bill,
+            'delete_form' => $deleteForm->createView(),        ));
     }
 }

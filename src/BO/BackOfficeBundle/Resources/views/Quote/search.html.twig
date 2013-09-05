@@ -4,7 +4,7 @@
     {% autoescape false %}
         <div class="dash-content-title title-blue-dark">
             <div id="navigation">
-                <a href="{{ path('quote') }}">Quotes</a>
+                <a href="{{ path('bo_back_office_homepage') }}">Home</a> > <a href="{{ path('quote') }}">Quotes</a>
             </div>
         </div>
         <div class="dash-content-body">
@@ -31,7 +31,7 @@
                                         </div>
                                         <div class="unit-cell cell-content">
                                             <h2><a href="{{ path('quote_show', { 'id': quote.id }) }}">{{ quote.customer }}</a></h2>
-                                            Quote number : {{ quote.quoteNumber }}
+                                            Quote {{ quote.quoteNumber }} | Created at : {{ quote.createdDate|date('Y-m-d H:i:s') }}
                                         </div>
                                         <div class="unit-cell cell-action">
                                             <a href="{{ path('quote_show', { 'id': quote.id }) }}"><button class="btn-flat btn-flat-white">Show</button></a>

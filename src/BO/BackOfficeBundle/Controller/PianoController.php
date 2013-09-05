@@ -24,7 +24,9 @@ class PianoController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('BOBackOfficeBundle:Piano')->findAll();
+        $entities = $em->getRepository('BOBackOfficeBundle:Piano')->findBy(
+            array(),
+            array('name' => 'ASC'));
         $search   = $this->createForm(new PianoTypeSearch());
 
         return $this->render('BOBackOfficeBundle:Piano:index.html.twig', array(
@@ -197,7 +199,9 @@ class PianoController extends Controller
 
         $em = $this->getDoctrine()->getEntityManager();
 
-        $pianos = $em->getRepository('BOBackOfficeBundle:Piano')->findByName($name);
+        $pianos = $em->getRepository('BOBackOfficeBundle:Piano')->findBy(
+            array('name' => $name),
+            array('name' => 'ASC'));
         $search   = $this->createForm(new PianoTypeSearch());
 
         return $this->render('BOBackOfficeBundle:Piano:search.html.twig', array(

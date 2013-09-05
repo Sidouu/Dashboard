@@ -102,7 +102,7 @@ class __TwigTemplate_138657bd92d2f1d3559134fec1866427 extends Twig_Template
         echo $this->env->getExtension('routing')->getPath("bill");
         echo "\"><li class=\"m5\"><i class=\"icon-file icon-large mr10\"></i>Bills</li></a>
                 <hr>
-                <li class=\"m6\"><i class=\"icon-user icon-large mr10\"></i>Administration</li>
+                <li class=\"m6\"><i class=\"icon-calendar icon-large mr10\"></i>Planning</li>
                 <hr>
                 <li class=\"m7\"><i class=\"icon-user icon-large mr10\"></i>Plans</li>
                 <hr>

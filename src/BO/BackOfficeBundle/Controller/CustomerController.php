@@ -24,7 +24,9 @@ class CustomerController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('BOBackOfficeBundle:Customer')->findAll();
+        $entities = $em->getRepository('BOBackOfficeBundle:Customer')->findBy(
+            array(),
+            array('lastName' => 'ASC'));
         $search   = $this->createForm(new CustomerTypeSearch());
 
         return $this->render('BOBackOfficeBundle:Customer:index.html.twig', array(
@@ -203,7 +205,9 @@ class CustomerController extends Controller
 
         $em = $this->getDoctrine()->getEntityManager();
 
-        $customers = $em->getRepository('BOBackOfficeBundle:Customer')->findByLastName($name);
+        $customers = $em->getRepository('BOBackOfficeBundle:Customer')->findBy(
+            array('lastName' => $name),
+            array('lastName' => 'ASC'));
         $search   = $this->createForm(new CustomerTypeSearch());
 
         return $this->render('BOBackOfficeBundle:Customer:search.html.twig', array(

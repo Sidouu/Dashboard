@@ -24,7 +24,9 @@ class QuoteController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('BOBackOfficeBundle:Quote')->findAll();
+        $entities = $em->getRepository('BOBackOfficeBundle:Quote')->findBy(
+            array(),
+            array('createdDate' => 'DESC'));
         $search   = $this->createForm(new QuoteTypeSearch());
 
         return $this->render('BOBackOfficeBundle:Quote:index.html.twig', array(
@@ -197,7 +199,9 @@ class QuoteController extends Controller
 
         $em = $this->getDoctrine()->getEntityManager();
 
-        $quotes = $em->getRepository('BOBackOfficeBundle:Quote')->findByCustomer($name);
+        $quotes = $em->getRepository('BOBackOfficeBundle:Quote')->findBy(
+            array('customer' => $name),
+            array('createdDate' => 'DESC'));
         $search   = $this->createForm(new QuoteTypeSearch());
 
         return $this->render('BOBackOfficeBundle:Quote:search.html.twig', array(

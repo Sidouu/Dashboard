@@ -1,0 +1,86 @@
+@charset "utf-8";
+
+@font-face {
+   font-family: "PT Sans";
+   font-style: normal;
+   font-weight: 400;
+   src: local("PT Sans"), local("PTSans-Regular"), url("http://themes.googleusercontent.com/static/fonts/ptsans/v4/LKf8nhXsWg5ybwEGXk8UBQ.woff") format("woff");
+}
+
+pre {
+	font-family: "PT Sans";
+	margin: 0;
+	padding: 0;
+	display: inline;
+}
+
+body {
+    background-color: #FFFFFF;
+    color: #333333;
+    font-family: "PT Sans";
+    font-size: 10pt;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.pull-left {
+	float: left;
+}
+
+.pull-right {
+	float: right;
+}
+
+.clear-fix:after {
+    content: ".";
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+.mb50 {
+	margin-bottom: 50px;
+}
+
+#wrap {
+    width: 1000px;
+    margin: 50px auto 0;
+}
+
+#wrap table {
+    width: 100%;
+	/*border: 1px solid #333333;*/
+}
+
+#wrap table thead {
+	background-color: #8DB4E2;
+}
+
+#wrap table tbody {
+	
+}
+
+#wrap table tfoot {
+	font-weight: bold;
+}
+
+#wrap table th {
+	border: 1px solid #333333;
+	border-right: 0;
+}
+
+#wrap table th:last-child {
+	border-right: 1px solid #333333;
+}
+
+#wrap table td {
+	border: 1px solid #333333;
+	border-top: 0;
+	border-right: 0;
+	text-align: center;
+}
+
+#wrap table td:last-child {
+	border-right: 1px solid #333333;
+}

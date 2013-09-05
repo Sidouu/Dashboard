@@ -1,0 +1,70 @@
+{% extends 'BOBackOfficeBundle::simple.html.twig' %}
+
+{% block body -%}
+    {% autoescape false %}
+        <div id="topContent" class="mb50 clear-fix">
+            <div class="pull-left">
+                <strong>Martin Christian</strong><br />
+                1, Allée de la Roche<br />
+                71000 Sancé<br />
+                Tel : 06 86 27 29 44<br />
+                cristian.martin@wanadoo.fr<br />
+                Siret : 75369683000011
+            </div>
+            <div class="pull-right">
+                <strong>{{ bill.createdDate|date("d/m/Y") }}</strong><br /><br />
+                {{ bill.customer.lastName }} {{ bill.customer.firstName }}<br />
+                {{ bill.customer.address }} <br />
+                {{ bill.customer.postalCode }} {{ bill.customer.city }}<br />
+                Tel : {{ bill.customer.mobilePhone }}
+            </div>
+        </div>
+        <div id="title" class="mb50">
+            <h1>Bill n°{{ bill.billNumber }}</h1>
+        </div>
+        <div id="middleContent" class="mb50">
+            <table cellspacing="0" cellpadding="5">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Hours</th>
+                        <th>Rate hour</th>
+                        <th>Total hour(s)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Lorem ipsum</td>
+                        <td>2</td>
+                        <td>60,00 €</td>
+                        <td>120,00 €</td>
+                    </tr>
+                    <tr>
+                        <td>Lorem ipsum 2</td>
+                        <td>3</td>
+                        <td>60,00 €</td>
+                        <td>180,00 €</td>
+                    </tr>
+                    <tr>
+                        <td>Lorem ipsum 3</td>
+                        <td>1</td>
+                        <td>60,00 €</td>
+                        <td>60,00 €</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>Total</td>
+                        <td>6</td>
+                        <td></td>
+                        <td>360,00 €</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div id="bottomContent">
+            TVA. non applicable, art. 293 B du CGI.<br />
+            Date limite de règlement : {{ bill.payDate|date("d/m/Y") }}
+        </div>
+    {% endautoescape %}
+{% endblock %}

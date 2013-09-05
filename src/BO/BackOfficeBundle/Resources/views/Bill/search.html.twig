@@ -4,7 +4,7 @@
     {% autoescape false %}
         <div class="dash-content-title title-violet">
             <div id="navigation">
-                <a href="{{ path('bill') }}">Bills</a>
+                <a href="{{ path('bo_back_office_homepage') }}">Home</a> > <a href="{{ path('bill') }}">Bills</a>
             </div>
         </div>
         <div class="dash-content-body">
@@ -31,7 +31,7 @@
                                         </div>
                                         <div class="unit-cell cell-content">
                                             <h2><a href="{{ path('bill_show', { 'id': bill.id }) }}">{{ bill.customer }}</a></h2>
-                                            Bill number : {{ bill.billNumber }}
+                                            Bill {{ bill.billNumber }} | Created at : {{ bill.createdDate|date('Y-m-d H:i:s') }}
                                         </div>
                                         <div class="unit-cell cell-action">
                                             <a href="{{ path('bill_show', { 'id': bill.id }) }}"><button class="btn-flat btn-flat-white">Show</button></a>
