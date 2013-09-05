@@ -406,6 +406,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                     return array (  '_controller' => 'BO\\BackOfficeBundle\\Controller\\QuoteController::searchAction',  '_route' => 'quote_search',);
                 }
 
+                // quote_print
+                if (preg_match('#^/admin/quote/(?P<id>[^/]++)/print$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'quote_print')), array (  '_controller' => 'BO\\BackOfficeBundle\\Controller\\QuoteController::printAction',));
+                }
+
             }
 
             // BOSecurityBundle_homepage

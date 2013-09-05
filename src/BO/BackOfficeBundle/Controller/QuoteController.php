@@ -209,4 +209,21 @@ class QuoteController extends Controller
             'search' => $search->createView()
         ));
     }
+
+    public function printAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $quote = $em->getRepository('BOBackOfficeBundle:Quote')->find($id);
+
+        if (!$quote) {
+            throw $this->createNotFoundException('Unable to find quote entity.');
+        }
+
+        $deleteForm = $this->createDeleteForm($id);
+
+        return $this->render('BOBackOfficeBundle:Quote:print.html.twig', array(
+            'quote'      => $quote,
+            'delete_form' => $deleteForm->createView(),        ));
+    }
 }
